@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>PhoneGap Dialogs/Notification Test</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="buttons.css" />
+    <style>
+    body {margin:0px;font-size:large;}
+	.copyright {padding:5px;align:left;font-style:italic;font-size:small;}
+    </style>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript">
+    // Wait for PhoneGap to load
+	document.addEventListener("deviceready", onDeviceReady, false);
+	//
+	//
+	function onDeviceReady() {
+		//
+		thePlace1 = document.getElementById('alert');
+		thePlace1.addEventListener('click', function() {
+				navigator.notification.alert(
+					'You are the winner!',  // message
+					function () {           // callback
+						document.getElementById('callbackmsg').innerHTML = 'Alert returned';
+					}
+					,
+					'Game Over',            // title
+					'Done'                  // buttonName
+				)
+			});
+		//
+		thePlace2 = document.getElementById('confirm');
+		thePlace2.addEventListener('click', function() {
+
+				navigator.notification.confirm(
+					'You are the winner!', // message
+					function (buttonIndex) {  alert('You selected button ' + buttonIndex); },
+					'Game Over',           // title
+					['Restart','Exit']     // buttonLabels
+				);
+			});
+		//
+		thePlace3 = document.getElementById('prompt');
+		thePlace3.addEventListener('click', function() {
+				navigator.notification.prompt(
+					'Please enter your name',  // message
+					function (results) { alert("You selected button number " + results.buttonIndex + " and entered " + results.input1); },
+					onPrompt,                  // callback to invoke
+					'Registration',            // title
+					['Ok','Exit'],             // buttonLabels
+					'Jane Doe'                 // defaultText
+				);
+			});
+		//
+		thePlace4 = document.getElementById('beep');
+		thePlace4.addEventListener('click', function() {
+				navigator.notification.beep(3);
+			});
+	};
+	//
+	function onLoad() {
+	};
+
+    </script>
+</head>
+<body onload="onLoad()">
+<div class="button button-block button-large"><img align=left src=favicon-48x48.png>Dialogs/Notification</div>
+<span onclick='navigator.app.exitApp()'><button class="button button-pill button-primary button-large" style="margin:1em;">Exit</button></span>
+
+
+<div id=alert class="button button-block button-pill button-action button-large" style="margin:1em;">Alert</div>
+<div id=confirm class="button button-block button-pill button-primary button-large" style="margin:1em;">Confirm</div>
+<div id=prompt class="button button-block button-pill button-caution button-large" style="margin:1em;">Prompt</div>
+<div id=beep class="button button-block button-pill button-highlight button-large" style="margin:1em;">Beep</div>
+<p style=clear=both; />
+
+<div id=callbackmsg>
+</div>
+
+<div class="copyright" style="padding:5px;align:left;font-style:italic;font-size:small;">
+    <span id=copyright>Created by Jesus Monroy, Jr. &copy; 2015</span>
+</div>
+</body>
+</html>
+
+
+
+
+
+
