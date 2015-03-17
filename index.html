@@ -45,7 +45,6 @@
 				navigator.notification.prompt(
 					'Please enter your name',  // message
 					function (results) { alert("You selected button number " + results.buttonIndex + " and entered " + results.input1); },
-					onPrompt,                  // callback to invoke
 					'Registration',            // title
 					['Ok','Exit'],             // buttonLabels
 					'Jane Doe'                 // defaultText
@@ -54,7 +53,7 @@
 		//
 		thePlace4 = document.getElementById('beep');
 		thePlace4.addEventListener('click', function() {
-				navigator.notification.beep(3);
+				navigator.notification.beep(2);
 			});
 	};
 	//
