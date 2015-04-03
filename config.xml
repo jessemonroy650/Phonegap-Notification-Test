@@ -10,10 +10,10 @@
         <name>Phonegap Notification test</name>
         <description>Simple Dialogs/Notification test</description>
         <author href="http://bsdmasterindex.com" email="jessemonroy650@yahoo.com">
-        Jesse  Monroy
+        Jesse Monroy
         </author>
         <gap:platform name="android" />
-	<gap:platform name="ios" />
+		<gap:platform name="ios" />
 
         <preference name="permissions" value="none"/>
         <gap:plugin name="org.apache.cordova.dialogs" />
