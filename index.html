@@ -15,6 +15,11 @@
 	//
 	//
 	function onDeviceReady() {
+		// hide Exit button. They don't have one on iOS devices.
+		if (device.platform === "iOS") {
+			//alert("got iOS");
+			$("#exitApp").addClass("hidden");
+		}
 		//
 		thePlace1 = document.getElementById('alert');
 		thePlace1.addEventListener('click', function() {
@@ -64,7 +69,7 @@
 </head>
 <body onload="onLoad()">
 <div class="button button-block button-large"><img align=left src=favicon-48x48.png>Dialogs/Notification</div>
-<span onclick='navigator.app.exitApp()'><button class="button button-pill button-primary button-large" style="margin:1em;">Exit</button></span>
+<span onclick='navigator.app.exitApp()'><button id=exitApp class="button button-pill button-primary button-large" style="margin:1em;">Exit</button></span>
 
 
 <div id=alert class="button button-block button-pill button-action button-large" style="margin:1em;">Alert</div>
