@@ -14,60 +14,60 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript">
     // Wait for PhoneGap to load
-	document.addEventListener("deviceready", onDeviceReady, false);
-	//
-	//
-	function onDeviceReady() {
-		// hide Exit button. They don't have one on iOS devices.
-		if (device.platform === "iOS") {
-			//alert("got iOS");
-			// http://www.mzcart.com/javascript-how-to-addremove-css-class-from-a-dom-element/
-			document.getElementById('exitApp').classList.add("hidden");
-		}
-		//
-		thePlace1 = document.getElementById('alert');
-		thePlace1.addEventListener('click', function() {
-				navigator.notification.alert(
-					'You are the winner!',  // message
-					function () {           // callback
-						document.getElementById('callbackmsg').innerHTML = 'Alert returned';
-					}
-					,
-					'Game Over',            // title
-					'Done'                  // buttonName
-				)
-			});
-		//
-		thePlace2 = document.getElementById('confirm');
-		thePlace2.addEventListener('click', function() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+    //
+    //
+    function onDeviceReady() {
+        // hide Exit button. They don't have one on iOS devices.
+        if (device.platform === "iOS") {
+            //alert("got iOS");
+            // http://www.mzcart.com/javascript-how-to-addremove-css-class-from-a-dom-element/
+            document.getElementById('exitApp').classList.add("hidden");
+        }
+        //
+        thePlace1 = document.getElementById('alert');
+        thePlace1.addEventListener('click', function() {
+                navigator.notification.alert(
+                    'You are the winner!',  // message
+                    function () {           // callback
+                        document.getElementById('callbackmsg').innerHTML = 'Alert returned';
+                    }
+                    ,
+                    'Game Over',            // title
+                    'Done'                  // buttonName
+                )
+            });
+        //
+        thePlace2 = document.getElementById('confirm');
+        thePlace2.addEventListener('click', function() {
 
-				navigator.notification.confirm(
-					'You are the winner!', // message
-					function (buttonIndex) {  alert('You selected button ' + buttonIndex); },
-					'Game Over',           // title
-					['Restart','Exit']     // buttonLabels
-				);
-			});
-		//
-		thePlace3 = document.getElementById('prompt');
-		thePlace3.addEventListener('click', function() {
-				navigator.notification.prompt(
-					'Please enter your name',  // message
-					function (results) { alert("You selected button number " + results.buttonIndex + " and entered " + results.input1); },
-					'Registration',            // title
-					['Ok','Exit'],             // buttonLabels
-					'Jane Doe'                 // defaultText
-				);
-			});
-		//
-		thePlace4 = document.getElementById('beep');
-		thePlace4.addEventListener('click', function() {
-				navigator.notification.beep(2);
-			});
-	};
-	//
-	function onLoad() {
-	};
+                navigator.notification.confirm(
+                    'You are the winner!', // message
+                    function (buttonIndex) {  alert('You selected button ' + buttonIndex); },
+                    'Game Over',           // title
+                    ['Restart','Exit']     // buttonLabels
+                );
+            });
+        //
+        thePlace3 = document.getElementById('prompt');
+        thePlace3.addEventListener('click', function() {
+                navigator.notification.prompt(
+                    'Please enter your name',  // message
+                    function (results) { alert("You selected button number " + results.buttonIndex + " and entered " + results.input1); },
+                    'Registration',            // title
+                    ['Ok','Exit'],             // buttonLabels
+                    'Jane Doe'                 // defaultText
+                );
+            });
+        //
+        thePlace4 = document.getElementById('beep');
+        thePlace4.addEventListener('click', function() {
+                navigator.notification.beep(2);
+            });
+    };
+    //
+    function onLoad() {
+    };
 
     </script>
 </head>
