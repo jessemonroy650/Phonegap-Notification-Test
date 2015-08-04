@@ -10,7 +10,7 @@
     .expose {visibility:visible;display:block;} /* Here for completeness only. */
     .copyright {padding:5px;align:left;font-style:italic;font-size:small;}
     #header {margin:0;padding:0;}
-    #exitApp {margin:0.1em;float:right;}
+    #exitApp {margin:1em;} /* this is different only on this app
     </style>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="fastclick.js"></script>
@@ -79,13 +79,12 @@
 
     </script>
 </head>
-<body id=header onload="onLoad()">
-<div class="button button-block button-large">
+<body onload="onLoad()">
+<div id=header class="button button-block button-large">
     <img align=left src=favicon-48x48.png>
     Dialogs/Notification
+    <button id=exitApp onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:1em;">Exit</button>
 </div>
-<button id=exitApp onclick='navigator.app.exitApp()' class="button button-pill button-primary button-large" style="margin:1em;">Exit</button>
-<p style=clear=both; />
 
 <div id=alert class="button button-block button-pill button-action button-large" style="margin:1em;">Alert</div>
 <div id=confirm class="button button-block button-pill button-primary button-large" style="margin:1em;">Confirm</div>
