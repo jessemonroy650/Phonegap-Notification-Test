@@ -17,6 +17,6 @@
 
         <preference name="permissions" value="none"/>
         <!-- device required so we can detect if we are using iOS -->
-        <gap:plugin name="org.apache.cordova.device" />
-        <gap:plugin name="org.apache.cordova.dialogs" />
+		<gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+		<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
     </widget>
